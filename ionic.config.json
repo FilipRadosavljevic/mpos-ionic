@@ -1,0 +1,7 @@
+{
+  "name": "To-do-vezbe1",
+  "integrations": {
+    "capacitor": {}
+  },
+  "type": "angular"
+}
