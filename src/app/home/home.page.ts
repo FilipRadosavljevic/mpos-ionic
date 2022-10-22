@@ -1,4 +1,7 @@
 import { Component } from '@angular/core';
+import { ModalController } from '@ionic/angular';
+import { AddNewItemPage } from '../add-new-item/add-new-item.page';
+import { UpdateItemPage } from '../update-item/update-item.page';
 
 @Component({
   selector: 'app-home',
@@ -7,6 +10,22 @@ import { Component } from '@angular/core';
 })
 export class HomePage {
 
-  constructor() {}
+  today: number = Date.now();
+
+  constructor(public modalCtrl: ModalController) {}
+
+  async goToAddPage() {
+    const modal = await this.modalCtrl.create({
+      component: AddNewItemPage
+    });
+    return await modal.present();
+  }
+
+  async goToUpdatePage() {
+    const modal = await this.modalCtrl.create({
+      component: UpdateItemPage
+    });
+    return await modal.present();
+  }
 
 }

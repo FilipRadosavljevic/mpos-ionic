@@ -1,0 +1,45 @@
+<ion-header>
+  <ion-toolbar>
+    <ion-title>Add new item</ion-title>
+    <ion-icon name="close" slot="end" size="large" (click)="dismiss()"></ion-icon>
+  </ion-toolbar>
+</ion-header>
+
+<ion-content>
+  <ion-card>
+    <ion-card-content>
+      <ion-item>
+        <ion-textarea placeholder="Write your task here..."></ion-textarea>
+      </ion-item>
+
+      <ion-item>
+        <ion-select placeholder="Priority">
+          <ion-select-option value="low">Low</ion-select-option>
+          <ion-select-option value="middle">Middle</ion-select-option>
+          <ion-select-option value="high">High</ion-select-option>
+        </ion-select>
+      </ion-item>
+
+      <ion-item>
+        <ion-icon name="calendar"></ion-icon>
+        <ion-datetime-button datetime="datetime"></ion-datetime-button>
+
+        <ion-modal [keepContentsMounted]="true">
+          <ng-template>
+            <ion-datetime id="datetime"></ion-datetime>
+          </ng-template>
+        </ion-modal>
+      </ion-item>
+
+      <ion-item>
+        <ion-label>Category</ion-label>
+        <ion-chip color="primary">Work</ion-chip>
+        <ion-chip color="primary">Personal</ion-chip>
+        <ion-chip color="primary">Task</ion-chip>
+      </ion-item>
+
+      <ion-button expand="full">Add new task</ion-button>
+
+    </ion-card-content>
+  </ion-card>
+</ion-content>
