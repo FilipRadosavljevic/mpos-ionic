@@ -9,11 +9,11 @@
   <ion-card>
     <ion-card-content>
       <ion-item>
-        <ion-textarea placeholder="Write your task here..."></ion-textarea>
+        <ion-textarea placeholder="Write your task here..." [(ngModel)]="task.name"></ion-textarea>
       </ion-item>
 
       <ion-item>
-        <ion-select placeholder="Priority">
+        <ion-select [(ngModel)]="task.priority" placeholder="Priority">
           <ion-select-option value="low">Low</ion-select-option>
           <ion-select-option value="middle">Middle</ion-select-option>
           <ion-select-option value="high">High</ion-select-option>
@@ -26,19 +26,19 @@
 
         <ion-modal [keepContentsMounted]="true">
           <ng-template>
-            <ion-datetime id="datetime"></ion-datetime>
+            <ion-datetime id="datetime" [(ngModel)]="task.date"></ion-datetime>
           </ng-template>
         </ion-modal>
       </ion-item>
 
+      <ion-label>Category</ion-label>
       <ion-item>
-        <ion-label>Category</ion-label>
-        <ion-chip color="primary">Work</ion-chip>
-        <ion-chip color="primary">Personal</ion-chip>
-        <ion-chip color="primary">Task</ion-chip>
+        <ion-chip color="primary" *ngFor="let categorie of categories; let i = index" (click)="selectCategory(i)">
+          <ion-label>{{categorie}}</ion-label>
+        </ion-chip>
       </ion-item>
 
-      <ion-button expand="full">Update task</ion-button>
+      <ion-button expand="full" (click)="updateTask()">Update task</ion-button>
 
     </ion-card-content>
   </ion-card>
